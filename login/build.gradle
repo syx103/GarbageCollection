@@ -23,9 +23,9 @@ android {
     sourceSets {
         main{
             if (isModule.toBoolean()) {
-                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
-            }else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
+            }else {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
             }
         }
     }
@@ -46,5 +46,7 @@ android {
 }
 
 dependencies {
-    implementation project(":root")
+    if (isModule.toBoolean())  {
+        implementation project(":root")
+    }
 }
