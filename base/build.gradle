@@ -1,33 +1,19 @@
-if(isModule.toBoolean()) {
-    apply plugin :'com.android.application'
-    apply plugin: 'kotlin-android'
-}else {
-    apply plugin :'com.android.library'
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        if (isModule.toBoolean()) {
-            applicationId "com.example.base"
-        }
         minSdk 21
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    sourceSets {
-        main{
-            if (isModule.toBoolean()) {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            }else {
-                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
-            }
-        }
     }
 
     buildTypes {
@@ -46,7 +32,5 @@ android {
 }
 
 dependencies {
-    if (isModule.toBoolean()) {
-        implementation project(':root')
-    }
+    implementation project(':root')
 }
