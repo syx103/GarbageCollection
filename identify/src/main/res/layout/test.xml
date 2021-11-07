@@ -10,6 +10,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/gradual_color_bg"
         tools:context=".HomePageFragment">
 
@@ -20,7 +21,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:drawableStart="@drawable/garbage_classify"
+            android:drawableLeft="@drawable/garbage_classify"
             android:gravity="center_vertical"
             android:text="垃圾分类"
             android:textColor="#ffffff"
@@ -41,7 +42,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text" />
-
         <LinearLayout
             android:id="@+id/indicator_container"
             android:layout_width="wrap_content"
@@ -55,18 +55,17 @@
         <androidx.constraintlayout.helper.widget.Layer
             android:id="@+id/layer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:background="@drawable/card_bg"
             android:padding="10dp"
-            app:constraint_referenced_ids="search_button,voice_recognition,take_photo_recognition,picture_recognition" />
-
+            app:constraint_referenced_ids="search_button,voice_recognition,take_photo_recognition,picture_recognition"
+            android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/search_button"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
             android:background="@drawable/search_button_bg"
             android:drawableLeft="@drawable/garbage_search"
             android:gravity="left|center_vertical"
@@ -159,111 +158,28 @@
 
         </LinearLayout>
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/im_bg"
+        <TextView
+            android:text="　黑夜，那些风雨中的往事，演绎的悲欢离合，难以描绘的寂寞，终是烟火散尽。
+
+　　天明，落寞的晨，满天朝霞绚烂，却偏是点缀不出世间繁华。静静地站在木桥脚下，循着桥的弧线，望向一个更遥的远方。一片蓝，本该惬意抒怀，而今却唯清清冷冷，入骨伤怀。昨夜，多少个昨夜，这场梦，注定要发生。光阴的消逝，红尘似梦的情景，已变得模糊不清。感慨那些相遇的日子，注定是回忆里最美的沉淀。那些悸动的情愫，如烟花般绚烂，见证着幸福与伤怀。
+
+　　行走世间总不免要面对什么，或是相见欢的欣喜，或是无言独上西楼的孤寂，亦是微风朗月的平淡恬静。行走世间，面对离别总需要太多勇气。那些温情的记忆，萦绕在笔尖，舞姿翩翩。相遇的短暂，忘记却需要在岁月沧桑的年华里，慢慢淡漠。游离的感伤，充斥着心扉的痛楚，依旧刻骨铭心。
+
+　　陪你走过一段路，原来只是一场无缘的擦肩而过，只留下一些要经历的事，被尘世渲染。走过人来人往，遇到分分合合，有时思念将心填满，但心中仍有期盼，冷风渐淡，继续追赶。后来渐渐明白，留恋于你的世界，却如梦幻般，因为我只是你的过客，而你，却是我永恒的定格。
+
+　　时光匆匆，走过多少，我已不想去理会，只是任凭思绪在记忆里徘徊和游离。想你的夜晚，孤单席卷了全身，那一抹浓浓的离愁，仿佛是心在哀泣。
+
+　　人生的故事太漫长，那些想你的夜晚，黑暗、安静，踏上二十四桥，郎朗明月人烟散，唯我一人灯火阑珊。
+
+　　与你别过，岁月静好，我知道以后的日子，还是要随波逐流，不断漂泊。倘若，不曾遇见，我想记忆的痛楚，不会那么撕心裂肺。倘若，缘分未尽，我想，漫漫红尘路，也不会只有自己孤单地奔波在记忆的汪洋里。
+
+　　浮生如梦，岁月苍凉，繁华散尽终成空。往事如烟，追忆亦成空，蓦然回首，一切恍若昨日。"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/take_photo_recognition"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/garbage_test_background"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="h,0.4"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/picture_recognition"
-            app:round="20dp" />
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/ask_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ask_ques_bg"
-            android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="测一测，看得分"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/im_bg" />
-
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:autoSizeMaxTextSize="35sp"
-            android:autoSizeMinTextSize="20sp"
-            android:autoSizeTextType="uniform"
-            android:maxLines="1"
-            android:text="生活垃圾基本分类"
-            android:textColor="@color/black"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/im_bg" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/recyclable"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/recycleable_waste"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="h,1.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/hazardous"
-            app:layout_constraintTop_toBottomOf="@id/text2"
-            app:round="20dp" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/hazardous"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/hazardous_waste"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="h,1.5"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintLeft_toRightOf="@id/recyclable"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text2"
-            app:round="25dp" />
-
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/household_food"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/household_food_waste"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="h,1.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/residual"
-            app:layout_constraintTop_toBottomOf="@id/hazardous"
-            app:round="20dp" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/residual"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/residual_waste"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="h,1.5"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintLeft_toRightOf="@id/household_food"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclable"
-            app:round="25dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

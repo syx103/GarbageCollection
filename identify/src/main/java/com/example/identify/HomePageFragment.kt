@@ -9,12 +9,45 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 
 class HomePageFragment : Fragment() {
+    //轮播图
     private lateinit var viewPagerBanner: ViewPager2
+
+    //轮播图上面的指示点布局
     lateinit var linearLayout: LinearLayout
+
+    //    搜索框：进行垃圾搜索
+    private lateinit var searchGarbage: TextView
+
+    //    语音识别
+    private lateinit var voiceRecognition: LinearLayout
+
+    //    拍照识别
+    private lateinit var takePicture: LinearLayout
+
+    //    图片识别
+    private lateinit var photoRecognition: LinearLayout
+
+    //    测试题
+    private lateinit var question: TextView
+
+    //    可回收垃圾
+    private lateinit var recyclable: ImageFilterView
+
+    //    有害垃圾
+    private lateinit var hazardous: ImageFilterView
+
+    //    湿垃圾
+    private lateinit var householdFood: ImageFilterView
+
+    //    干垃圾
+    private lateinit var residual: ImageFilterView
+
     var lastPosition: Int? = null
     private val handler = Handler(Looper.getMainLooper())
     private var imageLists = mutableListOf<Int>()
@@ -22,6 +55,7 @@ class HomePageFragment : Fragment() {
         super.onCreate(savedInstanceState)
         requireActivity().window.statusBarColor = Color.parseColor("#79CDCD")
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +64,15 @@ class HomePageFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home_page, container, false)
         viewPagerBanner = view.findViewById(R.id.viewpager_banner)
         linearLayout = view.findViewById(R.id.indicator_container)
+        searchGarbage = view.findViewById(R.id.search_button)
+        voiceRecognition = view.findViewById(R.id.voice_recognition)
+        takePicture = view.findViewById(R.id.take_photo_recognition)
+        photoRecognition = view.findViewById(R.id.picture_recognition)
+        question = view.findViewById(R.id.ask_question)
+        recyclable = view.findViewById(R.id.recyclable)
+        hazardous = view.findViewById(R.id.hazardous)
+        householdFood = view.findViewById(R.id.household_food)
+        residual = view.findViewById(R.id.residual)
         return view
     }
 
