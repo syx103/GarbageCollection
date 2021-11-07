@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/gradual_color_bg"
+        tools:context=".HomePageFragment">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:drawableLeft="@drawable/garbage_classify"
+            android:gravity="center_vertical"
+            android:text="垃圾分类"
+            android:textColor="#ffffff"
+            android:textSize="33sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/viewpager_banner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_banner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintDimensionRatio="h,1:0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text" />
+        <LinearLayout
+            android:id="@+id/indicator_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/viewpager_banner"
+            app:layout_constraintEnd_toEndOf="@id/viewpager_banner" />
+
+        <androidx.constraintlayout.helper.widget.Layer
+            android:id="@+id/layer"
+            android:layout_width="match_parent"
+            android:background="@drawable/card_bg"
+            android:padding="10dp"
+            app:constraint_referenced_ids="search_button,voice_recognition,take_photo_recognition,picture_recognition"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/search_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/search_button_bg"
+            android:drawableLeft="@drawable/garbage_search"
+            android:gravity="left|center_vertical"
+            android:text="搜索垃圾查看对应分类"
+            android:textColor="@color/cardview_dark_background"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpager_banner" />
+
+        <LinearLayout
+            android:id="@+id/voice_recognition"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/arc_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintDimensionRatio="h,1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/take_photo_recognition"
+            app:layout_constraintTop_toBottomOf="@id/search_button">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/voice_recognization" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="语音识别"
+                android:textColor="@color/cardview_light_background" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/take_photo_recognition"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/arc_take_photo_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintDimensionRatio="h,1.0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@id/voice_recognition"
+            app:layout_constraintRight_toLeftOf="@id/picture_recognition"
+            app:layout_constraintTop_toBottomOf="@id/search_button">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/take_phote_recognization" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="拍照识别"
+                android:textColor="@color/cardview_light_background" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/picture_recognition"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/arc_picture_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintDimensionRatio="h,1.0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@id/take_photo_recognition"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_button">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/picture_recognization" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="图片识别"
+                android:textColor="@color/cardview_light_background" />
+
+        </LinearLayout>
+
+        <TextView
+            android:text="　黑夜，那些风雨中的往事，演绎的悲欢离合，难以描绘的寂寞，终是烟火散尽。
+
+　　天明，落寞的晨，满天朝霞绚烂，却偏是点缀不出世间繁华。静静地站在木桥脚下，循着桥的弧线，望向一个更遥的远方。一片蓝，本该惬意抒怀，而今却唯清清冷冷，入骨伤怀。昨夜，多少个昨夜，这场梦，注定要发生。光阴的消逝，红尘似梦的情景，已变得模糊不清。感慨那些相遇的日子，注定是回忆里最美的沉淀。那些悸动的情愫，如烟花般绚烂，见证着幸福与伤怀。
+
+　　行走世间总不免要面对什么，或是相见欢的欣喜，或是无言独上西楼的孤寂，亦是微风朗月的平淡恬静。行走世间，面对离别总需要太多勇气。那些温情的记忆，萦绕在笔尖，舞姿翩翩。相遇的短暂，忘记却需要在岁月沧桑的年华里，慢慢淡漠。游离的感伤，充斥着心扉的痛楚，依旧刻骨铭心。
+
+　　陪你走过一段路，原来只是一场无缘的擦肩而过，只留下一些要经历的事，被尘世渲染。走过人来人往，遇到分分合合，有时思念将心填满，但心中仍有期盼，冷风渐淡，继续追赶。后来渐渐明白，留恋于你的世界，却如梦幻般，因为我只是你的过客，而你，却是我永恒的定格。
+
+　　时光匆匆，走过多少，我已不想去理会，只是任凭思绪在记忆里徘徊和游离。想你的夜晚，孤单席卷了全身，那一抹浓浓的离愁，仿佛是心在哀泣。
+
+　　人生的故事太漫长，那些想你的夜晚，黑暗、安静，踏上二十四桥，郎朗明月人烟散，唯我一人灯火阑珊。
+
+　　与你别过，岁月静好，我知道以后的日子，还是要随波逐流，不断漂泊。倘若，不曾遇见，我想记忆的痛楚，不会那么撕心裂肺。倘若，缘分未尽，我想，漫漫红尘路，也不会只有自己孤单地奔波在记忆的汪洋里。
+
+　　浮生如梦，岁月苍凉，繁华散尽终成空。往事如烟，追忆亦成空，蓦然回首，一切恍若昨日。"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/take_photo_recognition"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
