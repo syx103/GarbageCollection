@@ -3,6 +3,7 @@ package com.example.knowledgedisplay
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,7 @@ class KnowledgeDisplayActivity : BaseActivity() {
     private var recyclerView: RecyclerView? = null
     private var newsAdapter: NewsAdapter? = null
     private var smartRefreshLayout: SmartRefreshLayout? = null
+    private var tvTitle: TextView? = null
     private var newsListCache: ArrayList<NewsListBean> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +32,14 @@ class KnowledgeDisplayActivity : BaseActivity() {
     private fun initView() {
         recyclerView = findViewById(R.id.rv_knowledge_display)
         smartRefreshLayout = findViewById(R.id.srl)
-        smartRefreshLayout?.setOnLoadMoreListener {
-            fetchData()
+        smartRefreshLayout?.apply {
+            setOnLoadMoreListener {
+                fetchData()
+            }
+            setEnableRefresh(false)
         }
+        tvTitle = findViewById(R.id.tv_title)
+        tvTitle?.text = "垃圾分类新闻"
     }
 
     @SuppressLint("CheckResult")
