@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.base.BaseActivity
+import com.gyf.immersionbar.ktx.immersionBar
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -20,6 +22,7 @@ class KnowledgeDisplayActivity : BaseActivity() {
     private var newsAdapter: NewsAdapter? = null
     private var smartRefreshLayout: SmartRefreshLayout? = null
     private var tvTitle: TextView? = null
+    private var clTitle: ConstraintLayout? = null
     private var newsListCache: ArrayList<NewsListBean> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +43,11 @@ class KnowledgeDisplayActivity : BaseActivity() {
         }
         tvTitle = findViewById(R.id.tv_title)
         tvTitle?.text = "垃圾分类新闻"
+        clTitle = findViewById(R.id.cl_title)
+        immersionBar {
+            statusBarDarkFont(true)
+            titleBar(clTitle)
+        }
     }
 
     @SuppressLint("CheckResult")

@@ -1,5 +1,6 @@
 package com.example.knowledgedisplay
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 
 class NewsAdapter(private var newsList: List<NewsListBean>) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
@@ -27,8 +30,19 @@ class NewsAdapter(private var newsList: List<NewsListBean>) : RecyclerView.Adapt
         val itemBean = newsList[position]
         itemBean.let {
             holder.tvTitle.text = it.title
-            Glide.with(holder.itemView.context).load(it.picUrl).into(holder.ivCover)
+            val roundedCorner = RoundedCorners(8)
+            val options = RequestOptions.bitmapTransform(roundedCorner)
+            Glide.with(holder.itemView.context)
+                .load(it.picUrl)
+                .apply(options)
+                .into(holder.ivCover)
             holder.tvDesc.text = it.ctime
+            holder.itemView.setOnClickListener { v ->
+                val intent = Intent(v.context, WebviewActivity::class.java).apply {
+                    putExtra("url", itemBean.url)
+                }
+                v.context.startActivity(intent)
+            }
         }
     }
 

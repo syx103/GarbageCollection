@@ -10,7 +10,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_news_item_shape"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="10dp">
 
