@@ -9,8 +9,18 @@ fun View?.setViewVisibility(visible: Int) {
     }
 }
 
-fun TextView?.setTextViewText(textStr: String) {
+fun TextView?.setTextViewText(textStr: String?) {
     this?.let {
         text = textStr
     }
+}
+
+fun TextView?.isEmpty(): Boolean {
+    this?.let {
+        if ("" == it.text) {
+            return false
+        }
+        return true
+    }
+    return true
 }

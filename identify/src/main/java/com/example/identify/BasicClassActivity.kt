@@ -1,5 +1,7 @@
 package com.example.identify
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -8,10 +10,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.base.BaseActivity
 import com.example.utils.setTextViewText
 import com.example.utils.setViewVisibility
+import com.gyf.immersionbar.ktx.immersionBar
 
 class BasicClassActivity : BaseActivity() {
 
-    private var wasteType = RECYCLABLE
+    private var wasteType = 0
     private var tvTitle: TextView? = null
     private var ivBack: ImageView? = null
     private var tvGarbageTitle: TextView? = null
@@ -20,11 +23,12 @@ class BasicClassActivity : BaseActivity() {
     private var tvDefineDesc: TextView? = null
     private var tvNavDesc: TextView? = null
     private var clTitle: ConstraintLayout? = null
+    private var clClassTitle: ConstraintLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basic_class)
-        wasteType = intent.getStringExtra(WASTE_TYPE) ?: RECYCLABLE
+        wasteType = intent.getIntExtra(WASTE_TYPE, 0)
         initView()
     }
 
@@ -35,13 +39,21 @@ class BasicClassActivity : BaseActivity() {
         tvDefineDesc = findViewById(R.id.tv_define_desc)
         tvNavDesc = findViewById(R.id.tv_nav_desc)
         clTitle = findViewById(R.id.cl_title)
+        clClassTitle = findViewById(R.id.cl_class_title)
         tvTitle = findViewById(R.id.tv_title)
         ivBack = findViewById(R.id.iv_back)
         ivBack.setViewVisibility(View.VISIBLE)
+        ivBack?.setOnClickListener {
+            finish()
+        }
+        immersionBar {
+            titleBar(clTitle)
+            statusBarDarkFont(true)
+        }
 
         when (wasteType) {
-            RECYCLABLE -> {
-                clTitle?.setBackgroundColor(resources.getColor(R.color.blue_recyclable))
+            TypeConstant.RECYCLABLE -> {
+                clClassTitle?.setBackgroundColor(resources.getColor(R.color.blue_recyclable))
                 tvGarbageTitle?.text = RECYCLABLE_TITLE
                 tvGarbageSubTitle?.text = RECYCLABLE_SUB_TITLE
                 tvDefineDesc?.text = RECYCLABLE_DEFINE
@@ -49,8 +61,8 @@ class BasicClassActivity : BaseActivity() {
                 ivIcon?.setImageResource(R.drawable.icon_recycleable)
                 tvTitle.setTextViewText(RECYCLABLE_TITLE)
             }
-            HARMFUL -> {
-                clTitle?.setBackgroundColor(resources.getColor(R.color.red_harmful))
+            TypeConstant.HARMFUL -> {
+                clClassTitle?.setBackgroundColor(resources.getColor(R.color.red_harmful))
                 tvGarbageTitle?.text = HARMFUL_TITLE
                 tvGarbageSubTitle?.text = HARMFUL_SUB_TITLE
                 tvDefineDesc?.text = HARMFUL_DEFINE
@@ -58,8 +70,8 @@ class BasicClassActivity : BaseActivity() {
                 ivIcon?.setImageResource(R.drawable.icon_harmful)
                 tvTitle.setTextViewText(HARMFUL_TITLE)
             }
-            KITCHEN -> {
-                clTitle?.setBackgroundColor(resources.getColor(R.color.green_kitchen))
+            TypeConstant.KITCHEN -> {
+                clClassTitle?.setBackgroundColor(resources.getColor(R.color.green_kitchen))
                 tvGarbageTitle?.text = KITCHEN_TITLE
                 tvGarbageSubTitle?.text = KITCHEN_SUB_TITLE
                 tvDefineDesc?.text = KITCHEN_DEFINE
@@ -67,8 +79,8 @@ class BasicClassActivity : BaseActivity() {
                 ivIcon?.setImageResource(R.drawable.icon_kitchen)
                 tvTitle.setTextViewText(KITCHEN_TITLE)
             }
-            RESIDUAL -> {
-                clTitle?.setBackgroundColor(resources.getColor(R.color.black_residual))
+            TypeConstant.RESIDUAL -> {
+                clClassTitle?.setBackgroundColor(resources.getColor(R.color.black_residual))
                 tvGarbageTitle?.text = RESIDUAL_TITLE
                 tvGarbageSubTitle?.text = RESIDUAL_SUB_TITLE
                 tvDefineDesc?.text = RESIDUAL_DEFINE
@@ -104,7 +116,8 @@ class BasicClassActivity : BaseActivity() {
         const val RESIDUAL_DEFINE = "其他垃圾指危害比较小，没有再次利用的价值的垃圾，如建筑垃圾，生活垃圾等，一般都采取填埋、焚烧、卫生分解等方法处理，部分还可以使用生物分解的方法解决，如放蚯蚓等。其他垃圾是可回收物、厨余垃圾、有害垃圾剩余下来的一种垃圾种类。\n其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物，采取卫生填埋可有效减少对地下水、地表水、土壤及空气的污染。到目前为止，人类暂时还没有有效化解其他垃圾的好方法，所以要尽量少产生。"
 
         const val RECYCLABLE_NAV = "● 纸类垃圾投放时宜折好压平\n" +
-                "● 金属尖利器物宜包装牢固,易拉罐盒类应压扁○纺织类垃圾投放应洗净并折好压平\n" +
+                "● 金属尖利器物宜包装牢固,易拉罐盒类应压扁\n" +
+                "● 纺织类垃圾投放应洗净并折好压平\n" +
                 "● 玻璃类垃圾投放撕掉标签，碎玻璃应包装牢固\n"
 
         const val HARMFUL_NAV = "● 投放时请注意轻放\n" +
@@ -119,5 +132,11 @@ class BasicClassActivity : BaseActivity() {
 
         const val RESIDUAL_NAV = "● 尽量沥干水分\n" +
                 "● 难以辨识类别的生活垃圾投入其他垃圾容器内\n"
+
+        fun startActivity(context: Context?, type: Int) {
+            val intent = Intent(context, BasicClassActivity::class.java)
+            intent.putExtra(WASTE_TYPE, type)
+            context?.startActivity(intent)
+        }
     }
 }

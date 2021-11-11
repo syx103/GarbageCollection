@@ -16,4 +16,5 @@
     <color name="red_harmful">#6A0000</color>
     <color name="green_kitchen">#42CC00</color>
     <color name="black_residual">#010101</color>
+    <color name="gray_bg">#F5F5F5</color>
 </resources>

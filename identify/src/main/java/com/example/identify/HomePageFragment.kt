@@ -82,20 +82,23 @@ class HomePageFragment : Fragment() {
         initViewPagerBanner()
         initIndicator()
         initBasicClass()
+        searchGarbage.setOnClickListener {
+            SearchActivity.startActivity(context)
+        }
     }
 
     private fun initBasicClass() {
         recyclable.setOnClickListener {
-
+            BasicClassActivity.startActivity(context, 0)
         }
         hazardous.setOnClickListener {
-
+            BasicClassActivity.startActivity(context, 1)
         }
         householdFood.setOnClickListener {
-
+            BasicClassActivity.startActivity(context, 2)
         }
         residual.setOnClickListener {
-
+            BasicClassActivity.startActivity(context, 3)
         }
     }
 

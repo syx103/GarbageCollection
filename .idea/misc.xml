@@ -9,8 +9,19 @@
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/base/src/main/res/drawable/ic_back.xml" value="0.25333333333333335" />
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/base/src/main/res/layout/layout_title_bar.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/bg_class_layout.xml" value="0.25333333333333335" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/bg_dialog.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/bg_dialog_title.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/bg_search_shape.xml" value="0.25333333333333335" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/ic_close.xml" value="0.25333333333333335" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/ic_dialog_close.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/ic_hot.xml" value="0.25333333333333335" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/ic_search.xml" value="0.25333333333333335" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/drawable/icon_hot.xml" value="0.25333333333333335" />
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/layout/activity_basic_class.xml" value="0.264" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/layout/activity_search.xml" value="0.264" />
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/layout/fragment_home_page.xml" value="0.2" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/layout/layout_hot_search_item.xml" value="0.264" />
+        <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/layout/layout_search_result_dialog.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/identify/src/main/res/layout/layout_title_bar.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/knowledgedisplay/src/main/res/drawable/bg_news_item_shape.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/woshi/Desktop/GarbageCollection/knowledgedisplay/src/main/res/drawable/ic_back.xml" value="0.25729166666666664" />
@@ -27,5 +38,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

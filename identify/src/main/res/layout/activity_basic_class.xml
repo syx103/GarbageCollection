@@ -11,7 +11,7 @@
     <include layout="@layout/layout_title_bar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_title"
+        android:id="@+id/cl_class_title"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginHorizontal="16dp"
