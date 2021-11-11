@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/gradual_color_bg"
-        tools:context=".HomePageFragment">
+        tools:context=".fragment.HomePageFragment">
 
         <TextView
             android:id="@+id/text"
@@ -180,6 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/ask_ques_bg"
+            android:clickable="true"
             android:gravity="center"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -265,5 +266,18 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recyclable"
             app:round="25dp" />
+
+        <ProgressBar
+            android:id="@+id/loading_view"
+            style="@style/CustomProgressBar_Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loading_bg"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/text2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

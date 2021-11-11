@@ -13,4 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="CustomProgressBar_Small">
+        <item name="android:indeterminateDrawable">@drawable/loading_small</item>
+        <item name="android:minWidth">50dp</item>
+        <item name="android:maxWidth">50dp</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:maxHeight">50dp</item>
+    </style>
 </resources>

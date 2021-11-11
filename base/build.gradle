@@ -2,6 +2,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -13,6 +14,12 @@ android {
         versionCode 1
         versionName "1.0"
 
+        kapt {
+            arguments {
+                //根据模块名来命名路由根节点
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,4 +40,7 @@ android {
 
 dependencies {
     implementation project(':root')
+    api 'com.alibaba:arouter-api:1.4.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+
 }

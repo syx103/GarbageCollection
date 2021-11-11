@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:background="@drawable/gradual_color_bg"
-        tools:context=".HomePageFragment">
+        tools:context=".fragment.HomePageFragment">
 
         <TextView
             android:id="@+id/text"

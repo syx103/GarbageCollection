@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.QuestionItemFragment">
+
+    <TextView
+        android:id="@+id/current_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:paddingRight="7dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/ 10"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@id/current_index"
+        app:layout_constraintLeft_toRightOf="@id/current_index" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="45sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/percent" />
+
+    <RadioGroup
+        android:id="@+id/question_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="@id/question"
+        app:layout_constraintTop_toBottomOf="@id/question">
+
+        <RadioButton
+            android:id="@+id/choice_household_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radiobutton_background"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="湿垃圾"
+            android:textSize="30sp" />
+
+        <RadioButton
+            android:id="@+id/choice_residual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/radiobutton_background"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="干垃圾"
+            android:textSize="30sp" />
+
+        <RadioButton
+            android:id="@+id/choice_recyclable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/radiobutton_background"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="可回收物"
+            android:textSize="30sp" />
+
+        <RadioButton
+            android:id="@+id/choice_hazardous"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/radiobutton_background"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="有害垃圾"
+            android:textSize="30sp" />
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

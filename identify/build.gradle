@@ -1,6 +1,7 @@
 if(isModule.toBoolean()) {
     apply plugin :'com.android.application'
     apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-kapt'
 }else {
     apply plugin :'com.android.library'
 }
@@ -9,6 +10,12 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+        kapt {
+            arguments {
+                //根据模块名来命名路由根节点
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
         if (isModule.toBoolean()) {
             applicationId "com.example.identify"
         }
@@ -49,7 +56,11 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     if (isModule.toBoolean())  {
+        api 'com.alibaba:arouter-api:1.4.0'
+        kapt 'com.alibaba:arouter-compiler:1.2.2'
         implementation project(":base")
         implementation project(":root")
     }

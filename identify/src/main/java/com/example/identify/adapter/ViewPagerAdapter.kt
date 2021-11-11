@@ -1,11 +1,11 @@
-package com.example.identify
+package com.example.identify.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.identify.R
 
 class ViewPagerAdapter(val imageLists: MutableList<Int>): RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>(){
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
