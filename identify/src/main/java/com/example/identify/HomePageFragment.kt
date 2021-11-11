@@ -1,9 +1,13 @@
 package com.example.identify
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.speech.RecognizerIntent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +17,9 @@ import android.widget.TextView
 import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import java.lang.StringBuilder
+import kotlin.experimental.and
+
 
 class HomePageFragment : Fragment() {
     //轮播图
@@ -48,6 +55,9 @@ class HomePageFragment : Fragment() {
     //    干垃圾
     private lateinit var residual: ImageFilterView
 
+
+    private val VOICE_MODEL = 1234
+
     var lastPosition: Int? = null
     private val handler = Handler(Looper.getMainLooper())
     private var imageLists = mutableListOf<Int>()
@@ -81,6 +91,33 @@ class HomePageFragment : Fragment() {
         initImageLists()
         initViewPagerBanner()
         initIndicator()
+        initClick()
+    }
+
+    fun initClick(){
+        voiceRecognition.setOnClickListener {
+            val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"开始语音")
+            startActivityForResult(intent,VOICE_MODEL);
+        }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == VOICE_MODEL && resultCode == RESULT_OK) {
+            if (data == null) {
+                return
+            }
+            val results = data.getStringArrayListExtra (RecognizerIntent.EXTRA_RESULTS) ?: return
+            var tempResults = StringBuilder()
+            for (i in results) {
+                tempResults.append(i)
+            }
+            val result = tempResults.toString()
+            //跳转
+        }
     }
 
     private fun initIndicator() {
