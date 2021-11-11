@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">login</string>
+    <string name="my_name">我的昵称</string>
+    <string name="my_question_tip">恭喜您已经答对3题</string>
+    <string name="my_tip">温馨提示：答题越多等级越高哦！</string>
+    <string name="continue_request">继续答题</string>
+
+    <string name="my_information">基本信息</string>
+    <string name="my_hot">垃圾分类热门榜单</string>
+    <string name="change_information">修改信息</string>
+    <string name="my_content_name">我的昵称：Sunny</string>
+    <string name="my_name_title">我的昵称：</string>
+    <string name="my_content_detail">简介：</string>
+    <string name="my_content">简介：热爱生活，让垃圾分类成为习惯</string>
+    <string name="my_sex">性别: 女</string>
+    <string name="my_sex_title">性别: </string>
+    <string name="my_age">果龄: 14</string>
+
+    <string name="save">保存</string>
+
+
+    <string name="red">有害垃圾</string>
+    <string name="green">厨余垃圾</string>
+    <string name="blue">可回收垃圾</string>
+    <string name="gray">其他垃圾</string>
+
 </resources>

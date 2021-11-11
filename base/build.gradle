@@ -1,17 +1,12 @@
-if(isModule.toBoolean()) {
-    apply plugin :'com.android.application'
-    apply plugin: 'kotlin-android'
-}else {
-    apply plugin :'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        if (isModule.toBoolean()) {
-            applicationId "com.example.base"
-        }
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -46,7 +41,5 @@ android {
 }
 
 dependencies {
-    if (isModule.toBoolean()) {
-        implementation project(':root')
-    }
+    implementation project(':root')
 }

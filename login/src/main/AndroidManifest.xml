@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GarbageCollection">
         <activity
+            android:name=".ChangeInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PhoneActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>

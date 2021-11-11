@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GarbageCollection</string>
+
+    <string name="skip">跳过登录</string>
+    <string name="login">登录</string>
+    <string name="login_tip">登录后查看更多</string>
+    <string name="phone_login_tip">未注册的手机号验证通过后将自动注册</string>
+    <string name="phone_number">请输入手机号</string>
+    <string name="password_number">请输入密码</string>
+    <string name="password_sure">请确定密码</string>
+    <string name="phone_tip">+86</string>
+    <string name="login_other">其他登录方式</string>
+    <string name="login_new">注册</string>
 </resources>

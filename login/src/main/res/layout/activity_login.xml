@@ -1,18 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/gray_f7"
     tools:context=".LoginActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/my_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:padding="10dp"
+        android:src="@drawable/back" />
 
-</LinearLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/my_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/my_back"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/image" />
+
+    <TextView
+        android:id="@+id/my_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/my_image"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/my_image"
+        android:paddingTop="5dp"
+        android:text="@string/my_name"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/my_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_name"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/my_image"
+        android:background="@drawable/background_level"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:paddingEnd="15dp"
+        android:text="LV 12"
+        android:textSize="10sp"
+        app:drawableStartCompat="@drawable/lv_16" />
+
+
+    <TextView
+        android:id="@+id/my_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_image"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/my_tip"
+        android:textSize="15dp" />
+
+
+    <TextView
+        android:id="@+id/my_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/my_question"
+        android:layout_alignBottom="@+id/my_tip"
+        android:drawableEnd="@drawable/next_16"
+        android:drawablePadding="3dp"
+        android:text="@string/continue_request" />
+
+
+    <TextView
+        android:id="@+id/my_question"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/my_tip"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/bgd_my_information"
+        android:gravity="center"
+        android:text="@string/my_question_tip" />
+
+
+    <TextView
+        android:id="@+id/my_information_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_question"
+        android:layout_alignStart="@+id/my_question"
+        android:layout_marginTop="20dp"
+        android:text="@string/my_information"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/my_change_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/my_question"
+        android:layout_alignBottom="@+id/my_information_all"
+        android:drawablePadding="3dp"
+        android:text="@string/change_information"
+        app:drawableEndCompat="@drawable/next_16" />
+
+
+    <LinearLayout
+        android:id="@+id/my_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_information_all"
+        android:layout_alignLeft="@+id/my_question"
+        android:layout_alignRight="@+id/my_question"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_my_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/my_content_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_content_name"
+            android:textColor="@color/black" />
+
+        <TextView
+
+            android:id="@+id/my_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/my_content"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/my_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/my_sex"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/my_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/my_age"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/my_hot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_information_content"
+        android:layout_alignStart="@+id/my_question"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/hot"
+        android:gravity="bottom"
+        android:text="@string/my_hot"
+        android:textSize="20dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hot_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_hot"
+        android:layout_alignLeft="@+id/my_question"
+        android:layout_alignRight="@+id/my_question"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_white" />
+
+</RelativeLayout>
