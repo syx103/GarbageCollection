@@ -81,6 +81,22 @@ class HomePageFragment : Fragment() {
         initImageLists()
         initViewPagerBanner()
         initIndicator()
+        initBasicClass()
+    }
+
+    private fun initBasicClass() {
+        recyclable.setOnClickListener {
+
+        }
+        hazardous.setOnClickListener {
+
+        }
+        householdFood.setOnClickListener {
+
+        }
+        residual.setOnClickListener {
+
+        }
     }
 
     private fun initIndicator() {
