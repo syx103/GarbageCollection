@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,21 +20,22 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.base.HomePageFragmentPath
-import com.example.base.ImageRecognitionResultFragmentPath
 import com.example.base.QuestionFragmentPath
 import com.example.identify.R
 import com.example.identify.adapter.ViewPagerAdapter
-import com.example.identify.model.ImageResultService
 import com.example.identify.model.NetServiceManager
 import com.example.identify.viewmodel.QuestionViewModel
 import java.io.File
-import javax.xml.transform.Result
 
 @Route(path = HomePageFragmentPath)
-class HomePageFragment(val frameId: Int) : Fragment(), View.OnClickListener {
+class HomePageFragment() : Fragment(), View.OnClickListener {
+    @JvmField
+    @Autowired
+    var frameId: Int? = null
     private val takePhoto = 1
     private val fromAlbum = 2
     private val viewModel: QuestionViewModel by viewModels()
@@ -184,7 +184,7 @@ class HomePageFragment(val frameId: Int) : Fragment(), View.OnClickListener {
             stopLoading()
             val fragment = ImageRecognitionResultFragment(it)
             requireActivity().supportFragmentManager.beginTransaction()
-                .addToBackStack(null).replace(frameId, fragment).commit()
+                .addToBackStack(null).replace(frameId!!, fragment).commit()
         }
     }
 
@@ -278,7 +278,7 @@ class HomePageFragment(val frameId: Int) : Fragment(), View.OnClickListener {
                 val fragmentInstance =
                     ARouter.getInstance().build(QuestionFragmentPath).navigation() as Fragment
                 requireActivity().supportFragmentManager.beginTransaction().addToBackStack(null)
-                    .replace(frameId, fragmentInstance).commit()
+                    .replace(frameId!!, fragmentInstance).commit()
 
             }
             R.id.picture_recognition -> {
